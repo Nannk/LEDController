@@ -1,0 +1,104 @@
+<!DOCTYPE HTML><html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    html {
+     font-family: Arial;
+     display: inline-block;
+     margin-left: 10px;
+     text-align: left;
+    }
+    h2 { font-size: 2.0rem; }
+    p { font-size: 1.0rem; }
+    .units { font-size: 1.0rem; }
+    .dht-labels{
+      font-size: 1.0rem;
+      vertical-align:middle;
+      padding-bottom: 2px;
+    }
+    .modelabel{font-size: 1.5rem; }
+  </style>
+</head>
+<body>
+  <h2>ESP8266 DHT Server</h2>
+    
+  <form action="/val">
+  
+    <label for="VRed"> Red Value </label>
+    <input type="range" min="0" max="255" value="200" id=VRed class="slider" name="Vredname"><br>
+
+    <p>Value Red: <span id="reddemo"></span></p><br>
+
+    <label for="VGreen"> Green Value </label>
+    <input type="range" min="0" max="255" value="255" id=VGreen class="slider" name="Vgreenname" ><br>
+
+    <p>Value Green: <span id="greendemo"></span></p><br>
+    
+    <label for="VBlue"> Blue Value </label>
+    <input type="range" min="0" max="255" value="255" id="VBlue" class="slider" name="Vbluename"><br>
+
+    <p>Value Blue: <span id="bluedemo"></span></p><br>
+
+    <label for="VBrightness"> Brightness Value </label>
+    <input type="range" min="0" max="255" value="255" id="VBrightness" class="slider" name="Vbrightnessname"> <br>
+
+    <p>Brightness Value: <span id="brightnessdemo"></span></p><br><br>
+
+    
+    <label class="modelabel">Mode</label><br><br>
+
+    <input type="radio" id="sld" name="radio-modes" value="led-solid-line">
+    <label for="sld">Solid Line</label><br>
+    <input type="radio" id="mov" name="radio-modes" value="led-moving-line">
+    <label for="mov">Moving Line</label><br>
+    <input type="radio" id="ep" name="radio-modes" value="led-epilepsy">
+    <label for="ep">Epilepsy Mode</label><br>
+    <input type="radio" id="sun" name="radio-modes" value="led-sun">  
+    <label for="sun">Sun Mode </label><br><br>
+    <input type="radio" id="flash" name="radio-modes" value="board-flash">
+    <label for="flash">Flash Mode</label><br>
+    <input type="radio" id="OFF" name="radio-modes" value="board-off"> 
+    <label for="OFF">Lights Off</label><br><br><br>
+
+    <input type="submit" value="Submit">
+
+  </form>
+
+</body>
+</html>
+
+<script>
+  var sliderred = document.getElementById("VRed");
+  var outputred = document.getElementById("reddemo");
+
+  var slidergreen = document.getElementById("VGreen");
+  var outputgreen = document.getElementById("greendemo");
+
+  var sliderblue = document.getElementById("VBlue");
+  var outputblue = document.getElementById("bluedemo");
+
+  var sliderbrightness = document.getElementById("VBrightness");
+  var outputbrightness = document.getElementById("brightnessdemo");
+
+  outputred.innerHTML = sliderred.value; // Display the default slider value
+  outputgreen.innerHTML = slidergreen.value;
+  outputblue.innerHTML = sliderblue.value;
+  outputbrightness.innerHTML = sliderbrightness.value;
+
+  // Update the current slider value (each time you drag the slider handle)
+  sliderred.oninput = function() {
+  outputred.innerHTML = this.value;
+  }
+  slidergreen.oninput = function() {
+  outputgreen.innerHTML = this.value;
+  }
+  sliderblue.oninput = function() {
+  outputblue.innerHTML = this.value;
+  }
+  sliderbrightness.oninput = function() {
+  outputbrightness.innerHTML = this.value;
+  } 
+</script> 
+
+
