@@ -54,6 +54,47 @@ void handlelightsoff()
     superserver.send(200, "text", "Lights OFF");
 }
 
+void handlebrightnessincrease()
+{
+    if(Brightness + 25 > 250)
+    {
+        if(Brightness <250)
+        {
+            Brightness = 250;
+            superserver.send(200,"text", "Brightness: 250");
+        }
+        else
+        {
+            superserver.send(200, "text", "Brightness is at max");
+        }
+    }
+    else
+    {
+        Brightness = Brightness+25;
+        superserver.send(200,"text", "Brightness increased");
+    }
+}
+
+void handlebrightnessdecrease()
+{
+    if(Brightness - 25 < 0)
+    {
+        if(Brightness > 0)
+        {
+            Brightness = 0;
+            superserver.send(200,"text", "Brightness: 0");
+        }
+        else
+        {
+            superserver.send(200, "text", "Brightness is at min");
+        }
+    }
+    else
+    {
+        Brightness = Brightness-25;
+        superserver.send(200,"text", "Brightness decreased");
+    }
+}
 
 void superserversetup()
 {
@@ -65,7 +106,8 @@ void superserversetup()
     superserver.on("/sunmode", handlesunmode);
     superserver.on("/flash", handleflash);
     superserver.on("/off", handlelightsoff);
-
+    superserver.on("/brightnessincrease", handlebrightnessincrease);
+    superserver.on("/brightnessdecrease", handlebrightnessdecrease);
 
     superserver.begin();
 }

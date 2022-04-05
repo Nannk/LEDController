@@ -1,23 +1,24 @@
-#pragma oncees
+#pragma once
 
 #include <FastLED.h>
 #include <Configuration.h>
 
 CRGB leds[LED_NUM];
 
-int k; //counters
+//int k; //counters
 int t;
 
 void LEDSetup()
 {
-    FastLED.addLeds<LED_TYPE, LED_PIN, GRB>(leds, LED_NUM);
-    FastLED.clear();
-    FastLED.setBrightness(Brightness);
+    FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, LED_NUM);
+    //FastLED.addLeds<LED_TYPE, LED_PIN, GRB>(leds, LED_NUM);
+    //FastLED.clear();
+    //FastLED.setBrightness(Brightness);
 }
 
 void MovingLine()
 {
-    k=0;
+    int k=0;
     while(k<=LED_NUM)
     {
        leds[k] = CRGB::White;
@@ -36,21 +37,20 @@ void MovingLine()
 
 void SolidLine()
 {
-    k=0;
+    int k=0;
     while(k<=LED_NUM)
     {
-        leds[k].setRGB(ValueRed,ValueGreen,ValueBlue);
+        leds[k] = CRGB::White;
         k++;
     }
-
     FastLED.setBrightness(Brightness);
     FastLED.show();
-    delay(1000);
+    delay(1);
 }
 
 void EpilepsyWarning()
 {
-    k=0;
+    int k=0;
     while(k<LED_NUM)
     {
         int r = rand()%255;
@@ -99,14 +99,14 @@ void SunAnimation()
 
 void LightsOff()
 {
-    k=0;
+    int k=0;
     while(k<=LED_NUM)
     {
-        leds[k].setRGB(0,0,0);
+        leds[k]=CRGB::Black;
         k++;
     }
 
     FastLED.setBrightness(0);
     FastLED.show();
-    delay(1000);
+    delay(1);
 }

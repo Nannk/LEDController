@@ -1,17 +1,17 @@
 #pragma once
 
 //Led Strip
-#define LED_NUM 56
+#define LED_NUM 60
 #define LED_TYPE WS2812B
 #define COLOR_ORDER GRB
-#define LED_PIN D4      //Number Only?
+#define LED_PIN D4  //D4  //Number Only?
 
 //RGB Values
 #define ValueRed 255
 #define ValueGreen 180
 #define ValueBlue 180
 //Brigthess
-#define Brightness 123
+int Brightness=123;
 #define leddelay 100
 
     //Epilepsy Mode

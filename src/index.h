@@ -25,6 +25,9 @@ const char index_html[] PROGMEM = R"=====(
   <a href="epilepsy" target="myiframe">Epilepsy Mode</a><br><br>
   <a href="sunmode" target="myiframe">Sunrise Mode</a><br><br><br>
 
+  <a href="brightnessincrease" target="myiframe">Increase Brightness</a><br><br>
+  <a href="brightnessdecrease" target="myiframe">Decrease Brightness</a><br><br><br>
+
   <a href="flash" target="myiframe">Flashmode</a><br><br>
   <a href="off" target="myiframe">Lights OFF</a><br><br>
 
